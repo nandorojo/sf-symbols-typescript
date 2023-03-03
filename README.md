@@ -21,8 +21,6 @@ yarn add sf-symbols-typescript
 
 ## Usage
 
-You can, if desired, import the entire list of symbols:
-
 ```ts
 import type { SFSymbol } from 'sf-symbols-typescript'
 
