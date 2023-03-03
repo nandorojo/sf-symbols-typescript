@@ -13,6 +13,8 @@ A simple TypeScript utility to get the names of SF Symbols. Mainly useful for Re
 
 I made this for [Zeego](https://zeego.dev) and [Burnt](https://github.com/nandorojo/burnt).
 
+It has zero dependencies, and zero runtime [code](https://github.com/nandorojo/sf-symbols-typescript/blob/master/dist/index.js).
+
 ## Installation
 
 ```sh
