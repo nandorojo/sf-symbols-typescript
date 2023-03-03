@@ -6,6 +6,9 @@ import type { SFSymbol } from 'sf-symbols-typescript'
 const icon: SFSymbol = 'arrow.up'
 ```
 
+<img width="1021" alt="Screenshot 2023-03-03 at 3 21 13 PM" src="https://user-images.githubusercontent.com/13172299/222821298-0c0a4fba-fe0a-4e31-85d7-55e7870f2bc7.png">
+
+
 A simple TypeScript utility to get the names of SF Symbols. Mainly useful for React Native libraries and apps that utilize SF Symbols.
 
 I made this for [Zeego](https://zeego.dev) and [Burnt](https://github.com/nandorojo/burnt).
