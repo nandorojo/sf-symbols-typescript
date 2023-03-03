@@ -1,7 +1,7 @@
 # 🍏 SF Symbols for TypeScript
 
 ```ts
-import { SFSymbol } from 'sf-symbols-typescript'
+import type { SFSymbol } from 'sf-symbols-typescript'
 
 const icon: SFSymbol = 'arrow.up'
 ```
@@ -21,7 +21,7 @@ yarn add sf-symbols-typescript
 You can, if desired, import the entire list of symbols:
 
 ```ts
-import { SFSymbol } from 'sf-symbols-typescript'
+import type { SFSymbol } from 'sf-symbols-typescript'
 
 const icon: SFSymbol = 'arrow.up'
 ```
