@@ -1,5 +1,5 @@
-import symbols from '../data/symbols.json'
-import restricedSymbols from '../data/restrictedSymbols.json'
+import symbols from './data/symbols.json'
+import restricedSymbols from './data/restrictedSymbols.json'
 import fs from 'fs'
 
 let typeString = `export type SFSymbol =
