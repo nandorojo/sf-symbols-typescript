@@ -1,4 +1,4 @@
-export type SFSymbol =
+export type SFSymbolName =
   | '0.circle'
   | '0.circle.fill'
   | '0.square'
@@ -3355,3 +3355,6 @@ export type SFSymbol =
    * @see https://developer.apple.com/design/human-interface-guidelines/foundations/sf-symbols#symbols-for-use-as-is
    */
   | 'xserve'
+
+type LoseAutoComplete<T extends string> = T | Omit<string, T>
+export type SFSymbol = LoseAutoComplete<SFSymbolName>
