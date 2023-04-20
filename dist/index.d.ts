@@ -3356,5 +3356,4 @@ export type SFSymbolName =
    */
   | 'xserve'
 
-type LoseAutoComplete<T extends string> = T | Omit<string, T>
-export type SFSymbol = LoseAutoComplete<SFSymbolName>
+export type SFSymbol = SFSymbolName | (string & {})
