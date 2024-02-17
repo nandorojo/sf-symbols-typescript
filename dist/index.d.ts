@@ -1,12 +1,9 @@
-export interface Overrides {
-  /**
-   * Override this interface to limit the SFSymbol types to symbols available in a specific version.
-   * 
-   * @type {"1.0" | "1.1" | "2.0" | "2.1" | "2.2" | "3.0" | "3.1" | "3.2" | "3.3" | "4.0" | "4.1" | "4.2" | "5.0"}
-   * @default "5.0"
-   */
-  SFSymbolsVersion: '5.0'
-}
+/**
+ * Override this interface to limit the SFSymbol types to symbols available in a specific version.
+ * 
+ * @type {{ SFSymbolsVersion: "1.0" | "1.1" | "2.0" | "2.1" | "2.2" | "3.0" | "3.1" | "3.2" | "3.3" | "4.0" | "4.1" | "4.2" | "5.0"}}
+ */
+export interface Overrides {}
 
 /**
  * @name SF Symbols 1.0
@@ -6262,17 +6259,17 @@ export type SFSymbols5_0 =
   | 'zr.button.roundedtop.horizontal.fill'
 
 export type SFSymbol =
-  '1.0' extends Overrides['SFSymbolsVersion'] ? SFSymbols1_0 :
-  '1.1' extends Overrides['SFSymbolsVersion'] ? SFSymbols1_1 :
-  '2.0' extends Overrides['SFSymbolsVersion'] ? SFSymbols2_0 :
-  '2.1' extends Overrides['SFSymbolsVersion'] ? SFSymbols2_1 :
-  '2.2' extends Overrides['SFSymbolsVersion'] ? SFSymbols2_2 :
-  '3.0' extends Overrides['SFSymbolsVersion'] ? SFSymbols3_0 :
-  '3.1' extends Overrides['SFSymbolsVersion'] ? SFSymbols3_1 :
-  '3.2' extends Overrides['SFSymbolsVersion'] ? SFSymbols3_2 :
-  '3.3' extends Overrides['SFSymbolsVersion'] ? SFSymbols3_3 :
-  '4.0' extends Overrides['SFSymbolsVersion'] ? SFSymbols4_0 :
-  '4.1' extends Overrides['SFSymbolsVersion'] ? SFSymbols4_1 :
-  '4.2' extends Overrides['SFSymbolsVersion'] ? SFSymbols4_2 :
-  '5.0' extends Overrides['SFSymbolsVersion'] ? SFSymbols5_0 :
-  never
+  Overrides extends { SFSymbolsVersion: '1.0' } ? SFSymbols1_0 :
+  Overrides extends { SFSymbolsVersion: '1.1' } ? SFSymbols1_1 :
+  Overrides extends { SFSymbolsVersion: '2.0' } ? SFSymbols2_0 :
+  Overrides extends { SFSymbolsVersion: '2.1' } ? SFSymbols2_1 :
+  Overrides extends { SFSymbolsVersion: '2.2' } ? SFSymbols2_2 :
+  Overrides extends { SFSymbolsVersion: '3.0' } ? SFSymbols3_0 :
+  Overrides extends { SFSymbolsVersion: '3.1' } ? SFSymbols3_1 :
+  Overrides extends { SFSymbolsVersion: '3.2' } ? SFSymbols3_2 :
+  Overrides extends { SFSymbolsVersion: '3.3' } ? SFSymbols3_3 :
+  Overrides extends { SFSymbolsVersion: '4.0' } ? SFSymbols4_0 :
+  Overrides extends { SFSymbolsVersion: '4.1' } ? SFSymbols4_1 :
+  Overrides extends { SFSymbolsVersion: '4.2' } ? SFSymbols4_2 :
+  Overrides extends { SFSymbolsVersion: '5.0' } ? SFSymbols5_0 :
+  SFSymbols5_0
