@@ -89,32 +89,30 @@ export type ${getTypeName(release)} =\n`
   })
   .join('\n\n')
 
+
+const latestReleaseType = getTypeName(
+  releaseNames[releaseNames.length - 1]
+)
+
 const conditionalType = `export type SFSymbol =
 ${releaseNames
   .map((release) => {
     const typeName = getTypeName(release)
-    return `  '${getPublicVersion(
+    return `  Overrides extends { SFSymbolsVersion: '${getPublicVersion(
       release
-    )}' extends Overrides['SFSymbolsVersion'] ? ${typeName} :`
+    )}' } ? ${typeName} :`
   })
   .join('\n')}
-  never`
+  ${latestReleaseType}`
 
-const latestReleaseVersion = getPublicVersion(
-  releaseNames[releaseNames.length - 1]
-)
-
-const source = `export interface Overrides {
-  /**
-   * Override this interface to limit the SFSymbol types to symbols available in a specific version.
-   * 
-   * @type {${releaseNames
-     .map((release) => `"${getPublicVersion(release)}"`)
-     .join(' | ')}}
-   * @default "${latestReleaseVersion}"
-   */
-  SFSymbolsVersion: '${latestReleaseVersion}'
-}
+const source = `/**
+ * Override this interface to limit the SFSymbol types to symbols available in a specific version.
+ * 
+ * @type {{ SFSymbolsVersion: ${releaseNames
+   .map((release) => `"${getPublicVersion(release)}"`)
+   .join(' | ')}}}
+ */
+export interface Overrides {}
 
 ${versionedTypes}
 
