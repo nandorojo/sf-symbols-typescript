@@ -78,6 +78,7 @@ Here are the platforms supported by each version of SF Symbols:
 | **4.1**   | 16.1 | 13.0  | 16.1 | 1.0      | 9.1     |
 | **4.2**   | 16.4 | 13.3  | 16.4 | 1.0      | 9.4     |
 | **5.0**   | 17.0 | 14.0  | 17.0 | 1.0      | 10.0    |
+| **5.1**   | 17.2 | 14.2  | 17.2 | 1.1      | 10.2    |
 
 ## Contributing
 
