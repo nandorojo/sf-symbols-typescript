@@ -17,7 +17,14 @@ const releaseNames = [
   '2022.1',
   '2022.2',
   '2023',
+  '2023.2',
 ] as const
+
+// these internal release names were merged into a single public release
+const releaseNamesToMerge = {
+  // icons in 2023.1 and 2023.2 were released together as SF Symbols 5.1
+  '2023.1': '2023.2',
+} as const
 
 type ReleaseName = (typeof releaseNames)[number]
 type Symbol = string & {}
@@ -44,15 +51,23 @@ const NameAvailabilityPlist = readPlist<{
 
 const symbolsByRelease = Object.entries(NameAvailabilityPlist.symbols).reduce(
   (acc, [symbol, release]) => {
-    acc[release].push(symbol as Symbol)
+    const releaseName = releaseNamesToMerge[release] || release
+    if (!(releaseName in acc)) {
+      throw new Error(`Unknown release: ${release}`)
+    }
+    acc[releaseName].push(symbol as Symbol)
     return acc
   },
   Object.fromEntries(releaseNames.map((release) => [release, [] as Symbol[]]))
 ) as Record<ReleaseName, Symbol[]>
 
 function getPublicVersion(releaseName: ReleaseName) {
-  const [year, minorVersion = '0'] = releaseName.split('.')
+  let [year, minorVersion = '0'] = releaseName.split('.')
   const majorVersion = Number(year) - 2018 // 2019 -> 1, 2020 -> 2, etc.
+  if (year === '2023' && minorVersion !== '0') {
+    // internal release 2023.1 was skipped, breaking the pattern
+    minorVersion = `${Number(minorVersion) - 1}`
+  }
   return `${majorVersion}.${minorVersion}`
 }
 
