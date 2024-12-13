@@ -18,6 +18,9 @@ const releaseNames = [
   '2022.2',
   '2023',
   '2023.2',
+  '2023.3',
+  '2023.4',
+  '2024',
 ] as const
 
 // these internal release names were merged into a single public release

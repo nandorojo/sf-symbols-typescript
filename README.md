@@ -64,7 +64,7 @@ import type { SFSymbols4_2, SFSymbols5_0 } from 'sf-symbols-typescript'
 Here are the platforms supported by each version of SF Symbols:
 
 | SFSymbols | iOS  | macOS | tvOS | visionOS | watchOS |
-| --------- | ---- | ----- | ---- | -------- | ------- |
+| --------- |------|-------|------|----------|---------|
 | **1.0**   | 13.0 | 11.0  | 13.0 | 1.0      | 6.0     |
 | **1.1**   | 13.1 | 11.0  | 13.0 | 1.0      | 6.1     |
 | **2.0**   | 14.0 | 11.0  | 14.0 | 1.0      | 7.0     |
@@ -79,6 +79,9 @@ Here are the platforms supported by each version of SF Symbols:
 | **4.2**   | 16.4 | 13.3  | 16.4 | 1.0      | 9.4     |
 | **5.0**   | 17.0 | 14.0  | 17.0 | 1.0      | 10.0    |
 | **5.1**   | 17.2 | 14.2  | 17.2 | 1.1      | 10.2    |
+| **5.2**   | 17.4 | 14.24 | 17.4 | 1.1      | 10.4    |
+| **5.3**   | 17.6 | 14.6  | 17.6 | 1.3      | 10.6    |
+| **6.0**   | 18.0 | 15.0  | 18.0 | 2.0      | 11.0    |
 
 ## Contributing
 
