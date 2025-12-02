@@ -21,6 +21,11 @@ const releaseNames = [
   '2023.3',
   '2023.4',
   '2024',
+  '2024.1',
+  '2024.2',
+  '2024.3',
+  '2024.4',
+  '2025'
 ] as const
 
 // these internal release names were merged into a single public release
@@ -114,21 +119,21 @@ const latestReleaseType = getTypeName(
 
 const conditionalType = `export type SFSymbol =
 ${releaseNames
-  .map((release) => {
-    const typeName = getTypeName(release)
-    return `  Overrides extends { SFSymbolsVersion: '${getPublicVersion(
-      release
-    )}' } ? ${typeName} :`
-  })
-  .join('\n')}
+    .map((release) => {
+      const typeName = getTypeName(release)
+      return `  Overrides extends { SFSymbolsVersion: '${getPublicVersion(
+        release
+      )}' } ? ${typeName} :`
+    })
+    .join('\n')}
   ${latestReleaseType}`
 
 const source = `/**
  * Override this interface to limit the SFSymbol types to symbols available in a specific version.
  * 
  * @type {{ SFSymbolsVersion: ${releaseNames
-   .map((release) => `"${getPublicVersion(release)}"`)
-   .join(' | ')}}}
+    .map((release) => `"${getPublicVersion(release)}"`)
+    .join(' | ')}}}
  */
 export interface Overrides {}
 
